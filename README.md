@@ -8,7 +8,7 @@ MediLink is an innovative platform designed to optimize the utilization of costl
 - **Equipment Lending & Renting** – Enables hospitals to rent out or borrow medical equipment for a flexible duration.  
 - **Seamless Hospital-to-Hospital Connectivity** – Direct interaction between hospital authorities for efficient resource management.  
 - **Availability Management** – Real-time updates on equipment availability, ensuring transparency.  
-- **Scalable & Robust Backend** – Built using Java, Spring Boot, and MongoDB for high performance.  
+- **Scalable & Robust Backend** – Built using Java, Spring Boot, and PostgreSQL for high performance.  
 - **User-Friendly Frontend** – Developed with React.js for an intuitive and responsive interface.  
 
 ## 💡 Why MediLink?  
