@@ -21,11 +21,10 @@ In emergency situations, hospitals may struggle with the unavailability of criti
 - **Backend:** Java, Spring Boot 
 - **Authentication:** JWT-based secure authentication  
 - **API Communication:** RESTful APIs using Axios  
-- **Deployment:** Docker & Kubernetes (Planned)
-- **Event Streaming & Notifications (Planned):** Apache Kafka  
+- **Deployment:** Docker
+- **Event Streaming & Notifications:** Apache Kafka  
 
 ## 📌 Future Enhancements  
  
 - **Rating & Review System** – User feedback on equipment condition and transaction experience.  
-- **Payment Gateway Integration** – Secure online transactions for renting/lending medical equipment.
 - **Real-time Notifications** – Apache Kafka-based messaging system to notify renters, lenders, and administrators about bookings, availability updates, and critical alerts.
