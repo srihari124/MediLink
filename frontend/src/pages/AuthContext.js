@@ -2,6 +2,15 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 
 const AuthContext = createContext();
+function isTokenExpired(token) {
+  try {
+    const { exp } = jwtDecode(token);
+    if (!exp) return false;
+    return Date.now() >= exp * 1000;
+  } catch {
+    return true;
+  }
+}
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -9,13 +18,17 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      try {
-        const parsedUser = jwtDecode(token);
-        console.log('Decoded user:', parsedUser);
-        setUser(parsedUser);
-      } catch (error) {
-        console.error('Failed to parse token:', error);
+      if (isTokenExpired(token)) {
         localStorage.removeItem('token');
+        setUser(null);
+      } else {
+        try {
+          const parsedUser = jwtDecode(token);
+          setUser(parsedUser);
+        } catch (error) {
+          localStorage.removeItem('token');
+          setUser(null);
+        }
       }
     }
   }, []);
@@ -24,11 +37,10 @@ export function AuthProvider({ children }) {
     localStorage.setItem('token', token);
     try {
       const parsedUser = jwtDecode(token);
-      console.log('Decoded user:', parsedUser);
       setUser(parsedUser);
     } catch (error) {
-      console.error('Failed to parse token during login:', error);
       setUser(null);
+      localStorage.removeItem('token');
     }
   };
 

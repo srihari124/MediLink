@@ -1,0 +1,54 @@
+# =========================
+# IDE
+# =========================
+.idea/
+.vscode/
+*.iml
+
+# =========================
+# Node / Frontend
+# =========================
+**/node_modules/
+**/dist/
+**/build/
+**/.next/
+
+# =========================
+# Env files
+# =========================
+**/.env
+**/.env.local
+**/.env.prod
+
+# =========================
+# Java / Maven
+# =========================
+**/target/
+**/HELP.md
+**/.mvn/
+# =========================
+# Logs
+# =========================
+**/*.log
+
+# =========================
+# OS
+# =========================
+.DS_Store
+
+# =========================
+# Infra / AWS
+# =========================
+cdk.out/
+db_volumes/
+AWSCLIV2.pkg
+.aws/
+.idea/
+backend/infrastructure/*-debug.txt
+backend/infrastructure/*.sh
+
+frontend/package-lock.json
+frontend/package.json
+package-lock.json
+package.json
+backend/api-requests/

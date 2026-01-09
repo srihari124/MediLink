@@ -1,0 +1,37 @@
+server:
+  port: 4004
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service-route
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+        - id : equipment-service-route
+          uri: http://equipment-service:4000
+          predicates:
+            - Path=/api/equipments/**
+          filters:
+            - StripPrefix=1
+
+        - id : booking-service-route
+          uri : http://booking-service:4003
+          predicates:
+            - Path=/api/bookings/**
+          filters:
+            - StripPrefix=1
+            - JwtValidation
+
+        - id : payment-service-route
+          uri: http://payment-service:4006
+          predicates:
+            - Path=/api/payments/**
+          filters:
+            - StripPrefix=1
+            - JwtValidation
+

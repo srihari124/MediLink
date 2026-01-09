@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package booking.events;
+option java_multiple_files=true;
+
+message BookingStatusEvent{
+  string equipmentId = 1;
+  string bookingId = 2 ;
+  string status = 3;
+}
+

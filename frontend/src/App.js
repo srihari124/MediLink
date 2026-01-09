@@ -16,36 +16,27 @@ import './App.css';
 
 const App = () => {
   return (
-    <Router>
-      <AuthProvider>
-        <div
-          className="d-flex flex-column min-vh-100"
-          style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL + '/background2.jpg'})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundAttachment: 'fixed',
-            minHeight: '100vh',
-          }}
-        >
-          <Navbar />
-          <div className="flex-grow-1">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/equipment/:id" element={<EquipmentDetails />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/bookings" element={<Bookings />} />
-            </Routes>
+      <Router>
+        <AuthProvider>
+          <div className="app-container">
+            <Navbar />
+            <main className="main-content">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/equipment/:id" element={<EquipmentDetails />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/logout" element={<Logout />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/bookings" element={<Bookings />} />
+              </Routes>
+            </main>
           </div>
-        </div>
-      </AuthProvider>
-    </Router>
+        </AuthProvider>
+      </Router>
   );
 };
 
 export default App;
+
